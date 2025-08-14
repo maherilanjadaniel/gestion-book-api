@@ -30,3 +30,28 @@ docker-compose exec app php artisan migrate
 
 ```
 
+## 📌 Endpoints de l'API Books
+
+| Méthode | URL               | Corps de requête (JSON)                                                                 | Réponse attendue |
+|---------|-------------------|----------------------------------------------------------------------------------------|------------------|
+| GET     | `/api/books`      | *(aucun)*                                                                              | Liste tous les livres |
+| POST    | `/api/books`      | `{ "title": "Nom", "author": "Auteur", "description": "Texte", "published_year": 2024 }`| Crée un nouveau livre |
+| GET     | `/api/books/{id}` | *(aucun)*                                                                              | Détails d’un livre |
+| PUT     | `/api/books/{id}` | `{ "title": "Nom modifié" }`                                                            | Met à jour un livre |
+| DELETE  | `/api/books/{id}` | *(aucun)*                                                                              | Supprime un livre |
+
+---
+
+### 📍 Exemple création d'un livre
+**Requête**
+```http
+POST /api/books
+Content-Type: application/json
+
+{
+    "title": "Le Petit Prince",
+    "author": "Antoine de Saint-Exupéry",
+    "description": "Conte poétique et philosophique",
+    "published_year": 1943
+}
+```
