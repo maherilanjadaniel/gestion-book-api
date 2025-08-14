@@ -51,7 +51,7 @@ Content-Type: application/json
 {
     "title": "Le Petit Prince",
     "author": "Antoine de Saint-Exupéry",
-    "description": "Conte poétique et philosophique",
+    "summary": "Conte poétique et philosophique",
     "published_year": 1943
 }
 ```
