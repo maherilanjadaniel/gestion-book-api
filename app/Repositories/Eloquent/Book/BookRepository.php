@@ -1,5 +1,5 @@
 <?php 
-namespace App\Repositories\Eloquent\Product;
+namespace App\Repositories\Eloquent\Book;
 
 use Illuminate\Database\Eloquent\Builder;
 use App\Repositories\EloquentBaseRepository;

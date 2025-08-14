@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
     libjpeg-dev \
+    libonig-dev \
     libfreetype6-dev \
     locales \
     zip \
