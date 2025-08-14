@@ -35,7 +35,7 @@ docker-compose exec app php artisan migrate
 | Méthode | URL               | Corps de requête (JSON)                                                                 | Réponse attendue |
 |---------|-------------------|----------------------------------------------------------------------------------------|------------------|
 | GET     | `/api/books`      | *(aucun)*                                                                              | Liste tous les livres |
-| POST    | `/api/books`      | `{ "title": "Nom", "author": "Auteur", "description": "Texte", "published_year": 2024 }`| Crée un nouveau livre |
+| POST    | `/api/books`      | `{ "title": "Nom", "author": "Auteur", "summary": "Texte", "published_year": 2024 }`| Crée un nouveau livre |
 | GET     | `/api/books/{id}` | *(aucun)*                                                                              | Détails d’un livre |
 | PUT     | `/api/books/{id}` | `{ "title": "Nom modifié" }`                                                            | Met à jour un livre |
 | DELETE  | `/api/books/{id}` | *(aucun)*                                                                              | Supprime un livre |
