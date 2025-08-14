@@ -84,9 +84,9 @@ class BookRepository extends EloquentBaseRepository implements BaseRepository{
         return $model;
     }
 
-    public function destroy($id)
+    public function destroy($model)
     {
        
-        return $this->model->query()->where('id','=',$id)->delete();
+        return $model->delete();
     }
 }

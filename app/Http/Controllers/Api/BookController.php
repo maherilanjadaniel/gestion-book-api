@@ -47,7 +47,12 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        return new BookResource($this->bookRepository->getById($id));
+        $book = $this->bookRepository->getById($id);
+        if (!$book) {
+            return response()->json(['message' => 'Book not found'], 404);
+        }
+
+        return new BookResource($book);
     }
 
     /**
@@ -55,7 +60,18 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, string $id)
     {
-        $this->bookRepository->update($request->validated());
+        //Obtenir le livre par ID
+        $book = $this->bookRepository->getById($id);
+        if (!$book) {
+            return response()->json(['message' => 'Book not found'], 404);
+        }
+        $request->merge(['id' => $id]);
+
+        if(!$request->validated()) {
+            return response()->json(['message' => 'Invalid data'], 422);
+        }
+        // Mettre a jour le livre
+        $this->bookRepository->update($request->all());
         return response()->json([
             'message' => 'Book updated successfully',
             'data' => new BookResource($this->bookRepository->getById($id))
@@ -67,7 +83,13 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->bookRepository->delete($id);
+        //Obtenir le livre par ID
+        $book = $this->bookRepository->getById($id);
+        if (!$book) {
+            return response()->json(['message' => 'Book not found'], 404);
+        }
+        // Supprimer le livre
+        $this->bookRepository->destroy($book);
         return response()->json([
             'message' => 'Book deleted successfully'
         ]);
