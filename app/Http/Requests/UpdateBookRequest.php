@@ -25,6 +25,7 @@ class UpdateBookRequest extends FormRequest
             'title'          => 'sometimes|string|max:255',
             'author'         => 'sometimes|string|max:255',
             'summary'        => 'nullable|string',
+            'available'      => 'sometimes|boolean',
             'published_year' => 'sometimes|digits:4|integer'
         ];
     }

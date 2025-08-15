@@ -20,6 +20,7 @@ class BookResource extends JsonResource
             'author'         => $this->author,
             'summary'        => $this->summary,
             'published_year' => $this->published_year,
+            'available'      => ($this->available=== 1) ? true : false,
             'created_at'     => $this->created_at?->toDateTimeString(),
             'updated_at'     => $this->updated_at?->toDateTimeString(),
         ];
